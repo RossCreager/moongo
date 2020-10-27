@@ -1,6 +1,6 @@
 {
   "name": "@rcreager/moongo",
-  "version": "1.0.1-alpha",
+  "version": "1.1.0-alpha",
   "description": "Helper for managing APIs built on top of mongo",
   "main": "index.js",
   "scripts": {
