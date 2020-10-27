@@ -7,22 +7,22 @@ Moongo is a helpful wrapper for Mongo collections.
 
 npm install @rcreager/moongo
 
-## Examples
+## Example
 
-Basic Usage
+### Basic Example
 ```javascript
-const moongo = require('moongo')
+const moongo = require('@rcreager/moongo')
 const pokemonCollection = moongo.collection(pokemon)
 
 module.exports = pokemonCollection
 ```
+### [More Examples ](examples)
 
 ## Contributing
 
 Before submitting a pull request
 * Follow eslint rules
 * Add unit tests for any new code or fixed bug
-
 
 ## License
 Moongo is MIT licensed.
