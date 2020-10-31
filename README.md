@@ -1,5 +1,5 @@
 # Moongo
-![Image of Moongo Logo](logo.png)
+<img src="logo.png" width="300">
 
 Moongo is a helpful wrapper for Mongo collections.
 
