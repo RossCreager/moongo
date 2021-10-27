@@ -28,13 +28,9 @@ exports.repository = (collection) => {
     return mongoQuery.toArray()
   }
 
-  const deleteOne = async (query) => {
-    return collection.deleteOne(query)
-  }
+  const deleteOne = async (query) => safeAwait(collection.deleteOne(query))
 
-  const deleteOneById = async (id) => {
-    return collection.deleteOne({ _id: new ObjectId(id) })
-  }
+  const deleteOneById = async (id) => safeAwait(collection.deleteOne({ _id: new ObjectId(id) }))
 
   const insertOne = async (object) => {
     object.createDate = new Date()
