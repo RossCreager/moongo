@@ -1,9 +1,8 @@
 const ObjectId = require('mongodb').ObjectId
+const safeAwait = require('safe-await')
 
-exports.collection = (collection) => {
-  const findOne = async (query) => {
-    return collection.findOne(query)
-  }
+exports.repository = (collection) => {
+  const findOne = async (query) => safeAwait(collection.findOne(query))
 
   const findOneById = async (id) => {
     return collection.findOne({ _id: new ObjectId(id) })

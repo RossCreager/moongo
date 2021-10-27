@@ -18,8 +18,8 @@ afterAll(async () => {
 })
 
 describe('moongo', () => {
-  it('collection adds helper functions', async () => {
-    const pokemonCollection = moongo.collection(database.collection('pokemon'))
+  it('repository adds helper functions', async () => {
+    const pokemonCollection = moongo.repository(database.collection('pokemon'))
 
     expect(pokemonCollection).toHaveProperty('collection')
     expect(pokemonCollection).toHaveProperty('findOne')
