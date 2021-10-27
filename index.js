@@ -4,9 +4,7 @@ const safeAwait = require('safe-await')
 exports.repository = (collection) => {
   const findOne = async (query) => safeAwait(collection.findOne(query))
 
-  const findOneById = async (id) => {
-    return collection.findOne({ _id: new ObjectId(id) })
-  }
+  const findOneById = async (id) => safeAwait(collection.findOne({ _id: new ObjectId(id) }))
 
   const getMany = async (query = {}, projection = {}, limit, skip, sort) => {
     const mongoQuery = collection.find(query)
