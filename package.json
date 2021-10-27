@@ -30,5 +30,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^26.5.3",
     "mongodb-memory-server": "^6.6.1"
+  },
+  "dependencies": {
+    "safe-await": "^1.0.1"
   }
 }

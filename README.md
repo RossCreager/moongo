@@ -12,9 +12,9 @@ npm install @rcreager/moongo
 ### Basic Example
 ```javascript
 const moongo = require('@rcreager/moongo')
-const pokemonCollection = moongo.collection(pokemon)
+const pokemonRepository = moongo.repository(pokemon)
 
-module.exports = pokemonCollection
+module.exports = pokemonRepository
 ```
 ### [More Examples ](examples)
 
