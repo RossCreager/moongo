@@ -53,7 +53,7 @@ exports.repository = (collection) => {
   const updateOne = async (query, object, options = { upsert: false }) => {
     object.updatedDate = new Date()
 
-    return collection.updateOne(query, { $set: object }, options)
+    return safeAwait(collection.updateOne(query, { $set: object }, options))
   }
 
   const updateOneById = async (id, object) => {
