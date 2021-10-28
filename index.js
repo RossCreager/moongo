@@ -65,7 +65,7 @@ exports.repository = (collection) => {
   const updateMany = async (query, object, options = { upsert: false }) => {
     object.updatedDate = new Date()
 
-    return collection.updateMany(query, { $set: object }, options)
+    return safeAwait(collection.updateMany(query, { $set: object }, options))
   }
 
   const deleteAll = async () => {
