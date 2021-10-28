@@ -47,7 +47,7 @@ exports.repository = (collection) => {
       }
     })
 
-    return collection.insertMany(_objects)
+    return safeAwait(collection.insertMany(_objects))
   }
 
   const updateOne = async (query, object, options = { upsert: false }) => {
