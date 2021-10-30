@@ -74,7 +74,7 @@ exports.repository = (collection) => {
   }
 
   const deleteMany = async (query) => {
-    return collection.deleteMany(query)
+    return safeAwait(collection.deleteMany(query))
   }
 
   const countDocuments = async (query = {}) => {
