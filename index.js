@@ -36,7 +36,7 @@ exports.repository = (collection) => {
   const insertOne = async (object) => {
     object.createDate = new Date()
 
-    return collection.insertOne(object)
+    return safeAwait(collection.insertOne(object))
   }
 
   const insertMany = async (objects) => {
