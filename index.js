@@ -70,7 +70,7 @@ exports.repository = (collection) => {
   }
 
   const deleteAll = async () => {
-    return collection.deleteMany({})
+    return safeAwait(collection.deleteMany({}))
   }
 
   const deleteMany = async (query) => {
