@@ -36,5 +36,6 @@ describe('moongo', () => {
     expect(pokemonCollection).toHaveProperty('deleteMany')
     expect(pokemonCollection).toHaveProperty('countDocuments')
     expect(pokemonCollection).toHaveProperty('aggregate')
+    expect(pokemonCollection).toHaveProperty('bulkUpdateManyById')
   })
 })

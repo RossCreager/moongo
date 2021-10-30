@@ -1,5 +1,6 @@
 const ObjectId = require('mongodb').ObjectId
 const safeAwait = require('safe-await')
+const { splitEvery } = require('ramda')
 
 exports.repository = (collection) => {
   const findOne = async (query) => safeAwait(collection.findOne(query))
@@ -84,6 +85,28 @@ exports.repository = (collection) => {
     return collection.aggregate(query).toArray()
   }
 
+  const bulkUpdateManyById = async (objects) => {
+    const batchSize = 1000
+    const batches = splitEvery(batchSize, objects)
+    const now = new Date()
+
+    for (const batch of batches) {
+      const bulk = collection.initializeUnorderedBulkOp()
+
+      for (const batchItem of batch) {
+        const { _id, ...object } = batchItem
+
+        bulk
+          .find({ _id })
+          .updateOne({
+            $set: { ...object, updatedDate: now },
+          })
+      }
+
+      await bulk.execute()
+    }
+  }
+
   return {
     collection,
     findOne,
@@ -100,5 +123,6 @@ exports.repository = (collection) => {
     deleteMany,
     countDocuments,
     aggregate,
+    bulkUpdateManyById,
   }
 }
